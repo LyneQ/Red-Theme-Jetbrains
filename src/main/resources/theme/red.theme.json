@@ -1,0 +1,71 @@
+{
+  "name": "Red",
+  "author": "LyneQ",
+  "dark": true,
+  "editorScheme": "/theme/red.xml",
+  "colors": {
+    "primaryRed": "#F50A1C",
+    "primaryRedLight": "#FF4D59",
+    "primaryRedDark": "#C40816",
+    "primaryRedTransparent": "#F50A1C80",
+
+    "secondaryCyan": "#0AF5E3",
+    "secondaryCyanLight": "#4FF9EE",
+    "secondaryCyanDark": "#08C3B6",
+    "secondaryCyanTransparent": "#0AF5E333",
+
+    "thertiaryViolet": "#787AF6",
+    "thertiaryVioletLight": "#A3A8F9",
+    "thertiaryVioletDark": "#5A5FE6",
+    "thertiaryVioletTransparent": "#787AF680",
+
+    "primaryBackground": "#0c0c0c",
+    "primaryBackgroundLight": "#151515",
+    "primaryBackgroundDark": "#070707",
+
+    "secondaryBackground": "#121212",
+    "secondaryBackgroundLight": "#1A1A1A",
+    "secondaryBackgroundDark": "#0E0E0E",
+
+    "textPrimary": "#EEEEEE",
+    "textSecondary": "#7e7e7e",
+    "textDisabled": "#777777",
+    "textOnPrimary": "#FFFFFF",
+
+    "borderColor": "#2A2A2A",
+    "successColor": "#89ff59",
+    "selectionBg": "#0AF5E333"
+  },
+  "ui": {
+    "*": {
+      "background": "primaryBackground",
+      "foreground": "textSecondary",
+      "borderColor": "borderColor",
+      "focusColor": "primaryRedDark",
+      "selectionBackground": "selectionBg",
+      "selectionForeground": "textOnPrimary",
+      "disabledTextColor": "textDisabled",
+      "disabledBackground": "secondaryBackground",
+      "errorForeground": "primaryRed",
+
+      "warningForeground": "thertiaryViolet",
+      "successForeground": "successColor"
+    },
+    "Panel.background": "primaryBackground",
+    "Label.background": "primaryBackground",
+    "Label.foreground": "textPrimary",
+
+    "Button.background": "primaryBackground",
+    "Button.foreground": "textOnPrimary",
+    "Button.disabledText": "textDisabled",
+
+    "TextField.background": "secondaryBackground",
+    "TextField.foreground": "textPrimary",
+
+    "List.selectionBackground": "selectionBg",
+    "Table.selectionBackground": "selectionBg",
+    "Tree.selectionBackground": "selectionBg",
+
+    "Borders.color": "borderColor"
+  }
+}

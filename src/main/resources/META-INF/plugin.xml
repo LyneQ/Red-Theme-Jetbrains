@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>tech.lyneq.red</id>
+    <version>1.0.0</version>
+
+    <name>Red Theme</name>
+    <category>UI</category>
+
+    <vendor url="https://www.lyneq.tech" email="support@lyneq.tech">LyneQ</vendor>
+
+    <idea-version since-build="251"/>
+
+    <description><![CDATA[
+        <h2>Red Theme</h2>
+        <p>A sleek, high-contrast dark theme accented with vibrant reds and cyan highlights.</p>
+        <ul>
+          <li>Dark UI tuned for long coding sessions</li>
+          <li>Readable contrast and subtle backgrounds</li>
+          <li>Optional editor color scheme applied automatically</li>
+        </ul>
+        <p><em>Tip:</em> Enable “Use color scheme from theme” in Editor settings to auto-apply the scheme.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <ul>
+          <li>Initial release</li>
+          <li>Includes Red theme and bundled editor color scheme</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <bundledColorScheme id="Red" path="/theme/red.xml"/>
+        <themeProvider id="red" path="/theme/red.theme.json"/>
+    </extensions>
+</idea-plugin>

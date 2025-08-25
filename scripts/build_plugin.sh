@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Build IntelliJ theme plugin ZIP from resources/
+# Build IntelliJ theme plugin ZIP from src/main/resources/
 # Output: dist/red-<version>.zip
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-RES_DIR="$ROOT_DIR/resources"
+RES_DIR="$ROOT_DIR/src/main/resources"
 PLUGIN_XML="$RES_DIR/META-INF/plugin.xml"
 
 if [[ ! -f "$PLUGIN_XML" ]]; then

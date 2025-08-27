@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Build IntelliJ theme plugin ZIP from src/main/resources/
-# Output: dist/red-<version>.zip
+# Build IntelliJ theme plugin JAR from src/main/resources/
+# Output: dist/red-<version>.jar
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RES_DIR="$ROOT_DIR/src/main/resources"
@@ -22,10 +22,10 @@ fi
 
 DIST_DIR="$ROOT_DIR/dist"
 mkdir -p "$DIST_DIR"
-OUT_ZIP="$DIST_DIR/red-$VERSION.zip"
+OUT_JAR="$DIST_DIR/red-$VERSION.jar"
 
-# Recreate the zip
-rm -f "$OUT_ZIP"
+# Recreate the jar
+rm -f "$OUT_JAR"
 (
   cd "$RES_DIR"
   # Ensure required entries exist
@@ -35,7 +35,8 @@ rm -f "$OUT_ZIP"
       exit 1
     fi
   done
-  zip -r "$OUT_ZIP" META-INF theme >/dev/null
+  # A plugin can be distributed as a .jar with the same internal structure as the .zip
+  zip -r "$OUT_JAR" META-INF theme >/dev/null
 )
 
-echo "Built plugin: $OUT_ZIP"
+echo "Built plugin: $OUT_JAR"

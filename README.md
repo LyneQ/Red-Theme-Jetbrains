@@ -2,25 +2,25 @@ Red Theme — Build and Install Guide
 
 Overview
 - This repository contains a minimal IntelliJ Platform theme plugin called "Red Theme".
-- The plugin is already ready for packaging. No Gradle build is required; a simple script creates the production ZIP.
+- The plugin is already ready for packaging. No Gradle build is required; a simple script creates the production JAR.
 - Target IDEs: IntelliJ Platform IDEs that correspond to since-build 251 (2025.1+) or newer.
 
 Prerequisites
 - Bash shell (macOS/Linux; on Windows use Git Bash or WSL)
 - zip utility available in PATH
-- A JetBrains IDE (IntelliJ IDEA, WebStorm, etc.) to install the resulting plugin ZIP
+- A JetBrains IDE (IntelliJ IDEA, WebStorm, etc.) to install the resulting plugin JAR
 
 Project layout
-- resources/
+- src/main/resources/
   - META-INF/plugin.xml, pluginIcon.svg
   - theme/red.theme.json, theme/red.xml
 - scripts/build_plugin.sh — packaging script
-- dist/ — output directory for the built ZIP
+- dist/ — output directory for the built JAR
 
 Build steps
 1) Clone or open the project directory.
 
-2) Build the plugin ZIP:
+2) Build the plugin JAR:
    macOS/Linux:
      chmod +x scripts/build_plugin.sh
      scripts/build_plugin.sh
@@ -29,42 +29,24 @@ Build steps
      bash scripts/build_plugin.sh
 
 3) Result:
-   - The plugin ZIP will be created at dist/red-<version>.zip
-   - The <version> is read from resources/META-INF/plugin.xml
+   - The plugin JAR will be created at dist/red-<version>.jar
+   - The <version> is read from src/main/resources/META-INF/plugin.xml
 
-Install in your IDE
-Option A: Install from disk (recommended)
+Install in your IDE from disk
 - Open your JetBrains IDE
 - Settings/Preferences -> Plugins -> gear icon -> Install Plugin from Disk...
-- Select dist/red-<version>.zip
+- Select dist/red-<version>.jar
 - Restart the IDE when prompted
 - Enable the theme: Settings/Preferences -> Appearance & Behavior -> Appearance -> Theme -> choose "Red"
 
-Option B: Manual copy (advanced)
-- Copy the built ZIP into your IDE’s plugins directory. The location varies by OS/IDE/version; using "Install from Disk" is simpler and less error-prone.
-
 Troubleshooting
 - Error: required path is missing
-  - The script requires both resources/META-INF and resources/theme to exist.
+  - The script requires both src/main/resources/META-INF and src/main/resources/theme to exist.
   - Ensure these directories and the files inside them are present.
 
-- zip: command not found
-  - Install the zip tool.
-    - Ubuntu/Debian: sudo apt-get install zip
-    - macOS (Homebrew): brew install zip (or use the built-in /usr/bin/zip)
-    - Windows: use Git Bash with zip available or run under WSL
-
-- Wrong or unexpected version in output filename
-  - The script parses <version> from resources/META-INF/plugin.xml. Update that file if you want a different version.
-
-- I edited files under src/main/resources but my changes are not in the ZIP
-  - The packaging script intentionally uses resources/ as the source of truth.
-  - Edit files under resources/ (not src/main/resources) before packaging, or copy your changes there.
-
-Manual packaging (alternative)
-If you prefer to package without the script:
-  mkdir -p dist
-  (cd resources && zip -r ../dist/red-$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' META-INF/plugin.xml | head -n1).zip META-INF theme)
+- I edited files under resources but my changes are not in the JAR
+  - The packaging script intentionally uses src/main/resources/ as the source of truth.
+  - Edit files under src/main/resources/ before packaging, or copy your changes there.
 
 What’s inside the plugin
 - META-INF/plugin.xml: plugin metadata (id, version, since-build)

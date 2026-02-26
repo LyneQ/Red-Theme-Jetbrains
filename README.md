@@ -54,4 +54,4 @@ What’s inside the plugin
 - theme/red.xml: bundled editor color scheme
 
 Support
-- Vendor: LyneQ — https://www.lyneq.tech — support@lyneq.tech
+- Vendor: LyneQ — https://www.lyneq.be — support@lyneq.tech
